@@ -1,14 +1,19 @@
 import { Route, Routes } from 'react-router-dom';
-import Login from './Login';
-import DashBoard from './Dashboard';
-import SignUp from './SignUp';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import SignUp from './pages/SignUp';
+import { fetchPokemonDetail, fetchPokemonList } from './services/PokemonService';
+import PokemonDetail from './pages/PokemonDetail';
 
 export default function MainRoutes(){
   return (
     <Routes>
       <Route path='/' element={<Login/>} />
       <Route path='/sign-up' element={<SignUp/>} />
-      <Route path='/dashboard' element={<DashBoard/>} />
+      {/* recebe a função fetchPokemonList como prop, injetando a dependência necessária */}
+      <Route path='/dashboard' element={<Dashboard fetchPokemonList={fetchPokemonList}/>} />
+      <Route path="/pokemon-detail/:id"
+        element={<PokemonDetail fetchPokemonDetail={fetchPokemonDetail} />} />
       <Route path='*' element={<h1>404 Page Not Found</h1>} />
     </Routes>
   )
