@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cy:run:chrome": "cypress run --browser chrome"
   },
   "dependencies": {
     "react": "^18.3.1",
