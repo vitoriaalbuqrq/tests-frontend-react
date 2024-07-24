@@ -9,7 +9,7 @@ const mockFetchListPokemonFn = vi
     return [
       {
         id: 1,
-        name: 'Pikaxu',
+        name: 'Pikachu',
         image: faker.image.urlPlaceholder(),
         type: 'Eletrico',
       },
@@ -49,18 +49,18 @@ describe("Testa o componente Dashboard", () => {
     expect(items).toHaveLength(2);
   });
 
-  test("Deve haver um pikaxu na lista", async () => {
+  test("Deve haver um pikachu na lista", async () => {
     render(<Dashboard fetchPokemonList={mockFetchListPokemonFn} />);
 
-    const pikaxu = await screen.findByText("Pikaxu");
+    const pikachu = await screen.findByText("Pikachu");
 
-    expect(pikaxu).toBeInTheDocument();
+    expect(pikachu).toBeInTheDocument();
   });
 
   test("Deve ser possível clicar no li para abrir a página de detalhes do pokemon", async () => {
     render(<Dashboard fetchPokemonList={mockFetchListPokemonFn} />);
 
-    const link = await screen.findByText('Pikaxu');
+    const link = await screen.findByText('Pikachu');
     fireEvent.click(link);
     expect(navigateMock).toHaveBeenCalledTimes(1)
   });

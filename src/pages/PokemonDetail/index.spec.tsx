@@ -9,7 +9,7 @@ const mockFetchPokemonDetailFn = mockFn.mockImplementation(async () => {
   return {
     id: 1,
     image: faker.image.urlPlaceholder(),
-    name: 'Pikaxu',
+    name: 'Pikachu',
     type: 'Elétrico',
   }
 })
@@ -28,8 +28,8 @@ describe('Testa o componente PokemonDetail', () => {
   test('Deve haver um título na página', async () => {
     render(<PokemonDetail fetchPokemonDetail={mockFetchPokemonDetailFn} />)
 
-    const pikaxu = await screen.findByText('Pikaxu');
-    expect(pikaxu).toBeInTheDocument();
+    const pikachu = await screen.findByText('Pikachu');
+    expect(pikachu).toBeInTheDocument();
   })
 
   test('Deve haver um Link para voltar', async () => {
